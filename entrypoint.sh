@@ -61,7 +61,7 @@ MESSAGE="Spot Termination${CLUSTER_INFO}: ${NODE_NAME}, Instance: ${INSTANCE_ID}
 # If ASG_NAME is provided, detach the instance from ASG as soon as termination notice is available
 # This will stop new connections to this node, and make ASG launch the replacement node
 if [ "${ASG_NAME}" != "" ]; then
-  echo "Detaching INSTANCE ${INSTANCE_ID} FROM ASG ${ASG_NAME} and Region ${EC2_REGION}"
+  echo "Detaching instance ${INSTANCE_ID} from ASG ${ASG_NAME} in Region ${EC2_REGION}"
   aws autoscaling detach-instances --instance-ids $INSTANCE_ID --auto-scaling-group-name $ASG_NAME --no-should-decrement-desired-capacity --region $EC2_REGION
   echo "Detach done!"
 fi

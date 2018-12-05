@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM python:3-alpine
 
 ARG KUBE_VERSION=1.12.0
 ENV HOME=/srv
@@ -6,8 +6,6 @@ WORKDIR /srv
 
 RUN apk -v --update add --no-cache \
       curl ca-certificates \
-      python \
-      py-pip \
       && \
     pip install awscli
 
